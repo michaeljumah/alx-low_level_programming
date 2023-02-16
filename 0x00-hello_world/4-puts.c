@@ -1,14 +1,14 @@
 #include <stdio.h>
-/*
- *my main
- *main - Entry point
- *it is the main function
- *of the program
-*/
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 puts("\"Programming is like building a multilingual puzzle");
-  /*program to return 0 value*/
+
 return (0);
 
 }
