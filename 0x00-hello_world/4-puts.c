@@ -1,5 +1,6 @@
 #include <stdio.h>
-/*my main
+/*
+ *my main
  *it is the main function
  *of the program
 */
