@@ -1,6 +1,7 @@
 #include <stdio.h>
 /*
  *my main
+ *
  *it is the main function
  *of the program
 */
