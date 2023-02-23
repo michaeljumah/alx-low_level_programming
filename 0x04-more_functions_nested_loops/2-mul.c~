@@ -1,0 +1,12 @@
+#include "main.h"
+
+/**
+ *mul- a fuction that multiply two integer
+ *@a: first input
+ *@b: second input
+ *Return: multiplication result of the two inputs
+ */
+int mul (int a, int b)
+{
+           retun (a * b);
+}
