@@ -1,7 +1,7 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
- * leet - Write a function that encodes a string into 1337.
+ * leet - Write a function that encodes a string into 1337
  *
  * @s: This is the input string
  *
