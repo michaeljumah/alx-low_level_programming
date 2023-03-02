@@ -3,27 +3,24 @@
 /**
  * leet - Write a function that encodes a string into 1337
  *
- * @changed: This is the input string
+ * @z: This is the input string
  *
  * Return: String converted to 1337
  */
 
-char *leet(char *changed)
+char *leet(char *z)
 {
-	int index, j;
-	char minus[] = {'a', 'e', 'o', 't', 'l', '\0'};
-	char mayus[] = {'A', 'E', 'O', 'T', 'L', '\0'};
-	char numbers[] = {'4', '3', '0', '7', '1', '\0'};
+	char r[] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L'};
+	char replace[] = {'4', '3', '0', '7', '1'};
+	int i, j;
 
-	for (index = 0; changed[index] != '\0'; ++index)
+	for (i = 0; z[i] != '\0'; i++)
 	{
-		for (j = 0; j < 5; j++)
+		for (j = 0; r[j] != '\0'; j++)
 		{
-			if (changed[index] == minus[j] || changed[index] == mayus[j])
-			{
-				changed[index] = numbers[j];
-			}
+			if (z[i] == r[j])
+				z[i] = replace[j / 2];
 		}
 	}
-	return (changed);
+	return (z);
 }
