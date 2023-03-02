@@ -17,7 +17,7 @@ char *cap_string(char *e)
 
 	for (i = 0; e[i] != '\0'; i++)
 	{
-		if (e[i] >= 'i' && e[i] <= 'z')
+		if (e[i] >= 'a' && e[i] <= 'z')
 		{
 			e[i] =  e[i] - conversion;
 		}
