@@ -6,7 +6,7 @@
  * @l: input string
  * Return: Lowercase changed to uppercase of the string
  */
-char *string_toupper(char *l);
+char *string_toupper(char *l)
 {
 	int i;
 	int desp = 'a' - 'A';
