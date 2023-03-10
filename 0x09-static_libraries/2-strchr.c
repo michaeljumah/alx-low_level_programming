@@ -1,22 +1,28 @@
-2-strchr.c
-
-
+#include <stdio.h>
 #include "main.h"
+
 /**
- * _strchr - Entry point
- * @s: input
- * @c: input
+ * _strstr - Entry point
+ * @haystack: input
+ * @needle: input
  * Return: Always 0 (Success)
  */
-char *_strchr(char *s, char c)
+char *_strstr(char *haystack, char *needle)
 {
-	int i = 0;
+        for (; *haystack != '\0'; haystack++)
+        {
+                char *one = haystack;
+                char *two = needle;
 
+                while (*one == *two && *two != '\0')
+                {
+                        one++;
+                        two++;
+                }
 
-	for (; s[i] >= '\0'; i++)
-	{
-		if (s[i] == c)
-			return (&s[i]);
-	}
-	return (0);
+                if (*two == '\0')
+                        return (haystack);
+        }
+
+        return (NULL);
 }
