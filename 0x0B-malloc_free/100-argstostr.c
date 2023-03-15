@@ -9,18 +9,17 @@
  */
 char *_strcat(char *dest, char *src)
 {
-        int a, b;
+	int a, b;
 
-        for (a = 0; dest[a] != '\0'; a++)
-                ;
-        for (b = 0; src[b] != '\0'; b++)
-        {
-                dest[a] = src[b];
-                a++;
-        }
-        return (dest);
+	for (a = 0; dest[a] != '\0'; a++)
+		;
+	for (b = 0; src[b] != '\0'; b++)
+	{
+		dest[a] = src[b];
+		a++;
+	}
+	return (dest);
 }
-
 /**
  * _strlen - Return the number of the length of the string
  *
@@ -36,7 +35,6 @@ int _strlen(char *s)
 		;
 	return (a);
 }
-
 /**
  * argstostr - Concats argv to new string
  *
