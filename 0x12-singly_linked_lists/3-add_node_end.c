@@ -2,7 +2,7 @@
 #include <string.h>
 
 /**
- *add_node_end - Adds new node containing a string to the end of a linked list
+ * add_node_end - Adds new node containing a string to the end of a linked list
  *
  * @head: A pointer to the head of the linked list
  * @str: The string to add to the list
