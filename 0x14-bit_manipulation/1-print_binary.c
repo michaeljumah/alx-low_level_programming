@@ -7,22 +7,14 @@
  */
 void print_binary(unsigned long int n)
 {
-	int i;
-
-	if (n == 0)
+	if (n >> 0)
 	{
-		printf("0");
-		return;
+		if (n >> 1)
+			print_binary(n >> 1);
+		_putchar((n & 1) + '0');
 	}
-	for (i = (sizeof(unsigned long int) * 8) - 1; i >= 0; i--)
+	else
 	{
-		if ((n >> i) & 1)
-		{
-			putchar('1');
-		}
-		else
-		{
-			putchar('0');
-		}
+		_putchar('0');
 	}
 }
