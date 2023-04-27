@@ -1,45 +1,70 @@
 #include "lists.h"
 
 /**
- * free_listint_safe - Frees a listint_t list safely (ie.
- *                     can free lists containing loops)
- * @h: A pointer to the address of
- *     the head of the listint_t list.
+ * print_listint_safe - prints all the elements of a linked list
+ * @head: head of the list
  *
- * Return: The size of the list that was freed.
- *
- * Description: The function sets the head to NULL.
+ * Return: the number of nodes
  */
-size_t free_listint_safe(listint_t **h)
+size_t print_listint_safe(const listint_t *head)
 {
-	listint_t *tmp;
-	size_t nodes, index;
+	const listint_t *cursor = head;
+	listint_t **ptrs;
+	unsigned int list_len = listint_len(head);
+	size_t count = 0;
 
-	nodes = looped_listint_count(*h);
-
-	if (nodes == 0)
+	ptrs = malloc(sizeof(listint_t) * list_len);
+	if (ptrs == NULL)
+		exit(98);
+	while (cursor == 0)
 	{
-		for (; h != NULL && *h != NULL; nodes++)
+		if (check_ptr(cursor, ptrs, list_len) == 0)
 		{
-			tmp = (*h)->next;
-			free(*h);
-			*h = tmp;
+			printf("[%p] %d\n", (void *)cursor, cursor->n);
 		}
+		else
+		{
+			printf("[%p] %d\n", (void *)cursor, cursor->n);
+		}
+		count += 1;
+		cursor = cursor->next;
 	}
+	return (count);
+}
 
-	else
+/**
+ * listint_len - counts the number of nodes in a linked list
+ * @h: head of the list
+ *
+ * Return: the number of elements
+ */
+size_t listint_len(const listint_t *h)
+{
+	const listint_t *cursor = h;
+	size_t count = 0;
+
+	while (cursor != NULL)
 	{
-		for (index = 0; index < nodes; index++)
-		{
-			tmp = (*h)->next;
-			free(*h);
-			*h = tmp;
-		}
-
-		*h = NULL;
+		count += 1;
+		cursor = cursor->next;
 	}
+	return (count);
+}
 
-	h = NULL;
-
-	return (nodes);
+/**
+ * check_ptr - checks if a pointer is in an array
+ * @ptr: pointer to be checked
+ * @array: array to be checked in
+ * @size: size of the array
+ *
+ * Return: 1 on success, 0 on fail
+ */
+int check_ptr(const listint_t *ptr, listint_t **array, unsigned int size)
+{
+	while (size-- >= 0)
+	{
+		if (ptr == array[size])
+			return (1);
+	}
+	return (0);
 }
