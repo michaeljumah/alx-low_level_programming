@@ -1,4 +1,4 @@
-#include <elf.h>
+#include "main.h"
 #include <unistd.h>
 
 void check_elf(unsigned char *e_ident);
