@@ -85,21 +85,21 @@ int main(int argc, char **argv)
 	}
 
 	_fd_src = open(argv[1], O_RDONLY);
-	if (fd_src < -1)
-		exit(error_handler(fd_src, argv[1], READ_ERROR, NULL));
+	if (_fd_src < -1)
+		exit(error_handler(_fd_src, argv[1], READ_ERROR, NULL));
 
 	buffer = create_buffer(argv[2]);
 
 	umask(0);
 	_fd_dest = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (_fd_dest < -1)
-		exit(error_handler(fd_dest, argv[2], WRITE_ERROR, buffer));
+		exit(error_handler(_fd_dest, argv[2], WRITE_ERROR, buffer));
 
 	do {
-		res = read(fd_src, buffer, BUFFERSIZE);
+		res = read(_fd_src, buffer, BUFFERSIZE);
 		if (res == -1)
 			exit(error_handler(res, argv[1], READ_ERROR, buffer));
-		res = write(fd_dest, buffer, res);
+		res = write(_fd_dest, buffer, res);
 		if (res == -1)
 			exit(error_handler(res, argv[2], WRITE_ERROR, buffer));
 		_fd_dest = open(argv[2], O_RDWR | O_APPEND);
